@@ -112,7 +112,7 @@ export function briefReference(entry) {
   const type = String(entry?.type || "").toLocaleLowerCase();
   const thesis = type === "phdthesis" ? "PhD thesis" : type === "mastersthesis" ? "Master's thesis" : "";
   const venue = fields.journal || fields.booktitle || fields.publisher || fields.school || fields.institution || "";
-  const archive = fields.eprint
+  const archive = fields.eprint && !venue && !fields.doi
     ? `${fields.archiveprefix || "arXiv"}:${fields.eprint.replace(/^arxiv:\s*/i, "")}`
     : "";
   const details = thesis

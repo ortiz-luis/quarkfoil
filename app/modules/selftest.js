@@ -375,6 +375,11 @@ function assertCitations() {
   assert(mastersReference === "Roe, Master's thesis, Example College, (2021)", "master's thesis attributions identify their type and institution");
   const eprintReference = briefReference(parseBibliography("@article{mark2025, author={Mark, A. and Other, B.}, year={2025}, eprint={2501.12345}, archivePrefix={arXiv}, primaryClass={quant-ph}}")[0]);
   assert(eprintReference === "Mark et al., arXiv:2501.12345, (2025)", "e-print attributions include their archive and identifier");
+  const publishedEprintReference = briefReference(parseBibliography("@article{mark2025, author={Mark, A. and Other, B.}, journal={Physical Review A}, volume={111}, number={012345}, year={2025}, eprint={2501.12345}, archivePrefix={arXiv}, doi={10.1103/example}}")[0]);
+  assert(publishedEprintReference === "Mark et al., Physical Review A 111 012345, (2025)",
+    "published attributions omit redundant e-print identifiers");
+  const doiEprintReference = briefReference(parseBibliography("@article{mark2025, author={Mark, A.}, year={2025}, eprint={2501.12345}, archivePrefix={arXiv}, doi={10.1000/example}}")[0]);
+  assert(doiEprintReference === "Mark, (2025)", "DOI-backed attributions omit redundant e-print identifiers");
   let bibliographyError = "";
   try { parseBibliography("@article{broken, month=Sept}"); } catch (error) { bibliographyError = error.message; }
   assert(bibliographyError.startsWith("Invalid BibTeX:"), "BibTeX parser failures produce visible error messages");
