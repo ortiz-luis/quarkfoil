@@ -1,4 +1,5 @@
 @import url("./pasqal.css");
+@import url("./pasqal-calibration.css");
 
 .theme-scientific-light {
   --slide-background: #fbfcfd;
