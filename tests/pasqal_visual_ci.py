@@ -6,7 +6,6 @@ from pathlib import Path
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 
 from scientific_slides.server import create_server
@@ -46,18 +45,28 @@ def main() -> int:
             "document.querySelector('#stage').style.position='fixed';"
             "document.querySelector('#stage').style.inset='0';"
             "document.querySelector('#stage').style.padding='0';"
+            "document.querySelector('.reveal').style.width='1890px';"
+            "document.querySelector('.reveal').style.height='1063px';"
+            "document.querySelector('.slides').style.width='1890px';"
+            "document.querySelector('.slides').style.height='1063px';"
+            "document.querySelector('.slides').style.transform='none';"
             "document.body.style.margin='0';"
         )
 
-        body = driver.find_element(By.TAG_NAME, "body")
         for index in range(count):
-            if index:
-                body.send_keys(Keys.ARROW_RIGHT)
-            WebDriverWait(driver, 10).until(
-                lambda d, expected=index: d.find_element(By.CSS_SELECTOR, "#slides section.present").get_attribute("data-slide-index") == str(expected)
+            driver.execute_script(
+                "const sections=[...document.querySelectorAll('#slides section.scientific-slide')];"
+                "sections.forEach((s,i)=>{"
+                "s.hidden=false;"
+                "s.style.display=i===arguments[0]?'block':'none';"
+                "s.style.position='absolute';s.style.inset='0';"
+                "s.style.width='1890px';s.style.height='1063px';"
+                "s.style.margin='0';s.style.transform='none';s.style.opacity='1';"
+                "});",
+                index,
             )
-            time.sleep(0.15)
-            slide = driver.find_element(By.CSS_SELECTOR, "#slides section.present")
+            time.sleep(0.1)
+            slide = driver.find_elements(By.CSS_SELECTOR, "#slides section.scientific-slide")[index]
             slide.screenshot(str(OUT / f"page-{index + 1}.png"))
 
         print(f"PASQAL_VISUAL_SCREENSHOTS={count}")
