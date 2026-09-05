@@ -1,0 +1,29 @@
+name: PASQAL Visual Regression
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Install uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+        with:
+          enable-cache: true
+      - name: Install Python
+        run: uv python install 3.11
+      - name: Render PASQAL fixture screenshots
+        run: uv run --frozen --group browser --python 3.11 python tests/pasqal_visual_ci.py
+      - name: Upload PASQAL screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: pasqal-visual-screenshots
+          path: artifacts/pasqal-visual/*.png
+          if-no-files-found: error
