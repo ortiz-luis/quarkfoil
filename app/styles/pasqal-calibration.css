@@ -1,0 +1,117 @@
+/* Golden-calibrated PASQAL typography and spacing.
+   Values are expressed against the slide width so Reveal's base font scale
+   cannot change the visual result. */
+
+.scientific-slide[data-slide-id^="pasqal-"] {
+  container-type: inline-size;
+  container-name: pasqal-slide;
+}
+
+/* Shared content scale measured from the Beamer golden PDF. */
+.scientific-slide[data-slide-id^="pasqal-"] .slide-title :where(h1,h2,h3) {
+  font-size: 3.676cqw !important;
+  line-height: 1.03 !important;
+}
+.scientific-slide[data-slide-id^="pasqal-"] .slide-cell {
+  font-size: 2.353cqw !important;
+  line-height: 1.34 !important;
+}
+.scientific-slide[data-slide-id^="pasqal-"] .slide-footer {
+  font-size: 1.618cqw !important;
+}
+
+/* Front cover. */
+.scientific-slide[data-slide-id="pasqal-front"] .slide-title :where(h1,h2) {
+  font-size: 5.147cqw !important;
+  line-height: 1 !important;
+}
+.scientific-slide[data-slide-id="pasqal-front"] .slide-core {
+  top: 40.8% !important;
+}
+.scientific-slide[data-slide-id="pasqal-front"] .slide-cell {
+  font-size: 1.62cqw !important;
+  line-height: 1.28 !important;
+}
+.scientific-slide[data-slide-id="pasqal-front"] .slide-cell > :where(h1,h2,h3):first-child {
+  color: #00C887 !important;
+  font-size: 2.50cqw !important;
+  line-height: 1.08 !important;
+  margin: 0 0 2.1em !important;
+}
+
+/* Agenda. */
+.scientific-slide[data-slide-id="pasqal-agenda"] .slide-cell {
+  font-size: 2.353cqw !important;
+  line-height: 1.42 !important;
+}
+
+/* Ordinary content and focus slides. */
+.scientific-slide[data-slide-id^="pasqal-content-"] .slide-core,
+.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-core {
+  top: 34.5% !important;
+}
+.scientific-slide[data-slide-id^="pasqal-content-"] .slide-cell h3,
+.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell h3 {
+  font-size: 2.50cqw !important;
+  line-height: 1.08 !important;
+}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right table {
+  font-size: 1.90cqw !important;
+  line-height: 1.18 !important;
+}
+
+/* Section dividers: number and section title share the large Beamer scale. */
+.scientific-slide[data-slide-id^="pasqal-section-"] .slide-title {
+  visibility: hidden !important;
+}
+.scientific-slide[data-slide-id^="pasqal-section-"] .slide-cell {
+  font-size: 5.147cqw !important;
+  line-height: 1 !important;
+}
+.scientific-slide[data-slide-id^="pasqal-section-"] #pasqal-section-title,
+.scientific-slide[data-slide-id^="pasqal-section-"] [data-object-id="pasqal-section-title"],
+.scientific-slide[data-slide-id^="pasqal-section-"] [data-overlay-id="pasqal-section-title"] {
+  font-size: 5.147cqw !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+}
+
+/* Dark content. */
+.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-title :where(h1,h2,h3) {
+  font-size: 3.676cqw !important;
+}
+.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell {
+  font-size: 2.353cqw !important;
+  line-height: 1.34 !important;
+}
+.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell > p:first-child:has(>em:only-child) {
+  font-size: 2.50cqw !important;
+}
+.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type {
+  font-size: 2.50cqw !important;
+}
+
+/* KPI and cards families. */
+.scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-cell h3 {
+  font-size: 5.147cqw !important;
+}
+.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 {
+  font-size: 2.35cqw !important;
+}
+.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 + p {
+  font-size: 2.05cqw !important;
+}
+
+/* References. */
+.scientific-slide[data-slide-id^="pasqal-references-"] .slide-cell {
+  font-size: 1.95cqw !important;
+  line-height: 1.23 !important;
+}
+
+/* Closing. */
+.scientific-slide[data-slide-id="pasqal-closing"] .slide-title :where(h1,h2) {
+  font-size: 5.147cqw !important;
+}
+.scientific-slide[data-slide-id="pasqal-closing"] .slide-cell {
+  font-size: 2.10cqw !important;
+}
