@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-import tempfile
 import threading
 import time
 from pathlib import Path
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 
 from scientific_slides.server import create_server
@@ -36,22 +36,25 @@ def main() -> int:
         )
 
         count = len(driver.find_elements(By.CSS_SELECTOR, "#slides section.scientific-slide"))
+        driver.execute_script(
+            "document.querySelector('#toolbar').style.display='none';"
+            "document.querySelector('#slide-sidebar').style.display='none';"
+            "document.querySelector('#properties').style.display='none';"
+            "document.querySelector('.notes-pane').style.display='none';"
+            "document.querySelector('#notes-resizer').style.display='none';"
+            "document.querySelector('#workspace').style.display='block';"
+            "document.querySelector('#stage').style.position='fixed';"
+            "document.querySelector('#stage').style.inset='0';"
+            "document.querySelector('#stage').style.padding='0';"
+            "document.body.style.margin='0';"
+        )
+
+        body = driver.find_element(By.TAG_NAME, "body")
         for index in range(count):
-            driver.execute_script("window.Reveal.slide(arguments[0]);", index)
+            if index:
+                body.send_keys(Keys.ARROW_RIGHT)
             WebDriverWait(driver, 10).until(
-                lambda d: d.find_element(By.CSS_SELECTOR, "#slides section.present").get_attribute("data-slide-index") == str(index)
-            )
-            driver.execute_script(
-                "document.querySelector('#toolbar').style.display='none';"
-                "document.querySelector('#slide-sidebar').style.display='none';"
-                "document.querySelector('#properties').style.display='none';"
-                "document.querySelector('.notes-pane').style.display='none';"
-                "document.querySelector('#notes-resizer').style.display='none';"
-                "document.querySelector('#workspace').style.display='block';"
-                "document.querySelector('#stage').style.position='fixed';"
-                "document.querySelector('#stage').style.inset='0';"
-                "document.querySelector('#stage').style.padding='0';"
-                "document.body.style.margin='0';"
+                lambda d, expected=index: d.find_element(By.CSS_SELECTOR, "#slides section.present").get_attribute("data-slide-index") == str(expected)
             )
             time.sleep(0.15)
             slide = driver.find_element(By.CSS_SELECTOR, "#slides section.present")
