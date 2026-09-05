@@ -60,20 +60,15 @@
   line-height: 1.18 !important;
 }
 
-/* Section dividers: number and section title share the large Beamer scale. */
-.scientific-slide[data-slide-id^="pasqal-section-"] .slide-title {
-  visibility: hidden !important;
+/* Section dividers: title heading is the section title; core contains number. */
+.scientific-slide[data-slide-id^="pasqal-section-"] .slide-title :where(h1,h2,h3) {
+  font-size: 5.147cqw !important;
+  line-height: 1 !important;
+  color: #FFFFFF !important;
 }
 .scientific-slide[data-slide-id^="pasqal-section-"] .slide-cell {
   font-size: 5.147cqw !important;
   line-height: 1 !important;
-}
-.scientific-slide[data-slide-id^="pasqal-section-"] #pasqal-section-title,
-.scientific-slide[data-slide-id^="pasqal-section-"] [data-object-id="pasqal-section-title"],
-.scientific-slide[data-slide-id^="pasqal-section-"] [data-overlay-id="pasqal-section-title"] {
-  font-size: 5.147cqw !important;
-  line-height: 1 !important;
-  font-weight: 700 !important;
 }
 
 /* Dark content. */
