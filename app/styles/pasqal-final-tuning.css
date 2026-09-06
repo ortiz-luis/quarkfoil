@@ -1,15 +1,16 @@
 /* Final golden-tuning pass: only local component geometry. */
 
-/* Cards: match Beamer's ~95px card height and ~27px inter-card gap at 1280×720. */
+/* Cards: measured against Beamer at 1280×720 equivalent.
+   Target: ~43px header, ~47px body, ~27px inter-card gap. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 {
-  padding:.34em .38em!important;
-  margin:1.05em 0 0!important;
+  padding:.43em .38em!important;
+  margin:1.32em 0 0!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3:first-of-type {
   margin-top:0!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 + p {
-  padding:.42em .38em .48em!important;
+  padding:.62em .38em .68em!important;
   margin:0!important;
 }
 
@@ -35,16 +36,21 @@
   margin:0!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right :where(td,th) {
-  padding:.30em .18em!important;
+  padding:.44em .18em!important;
 }
 
-/* Dark slide: bullets already line up; move Takeaway down and restore the
-   Beamer panel height without changing the bullet block. */
+/* Dark slide: bullets already line up. Match Beamer takeaway x/y/height. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type {
-  margin-top:2.30em!important;
-  padding:.30em .35em!important;
+  margin-top:4.08em!important;
+  margin-left:-1.0cqw!important;
+  width:calc(100% + 2.0cqw)!important;
+  box-sizing:border-box!important;
+  padding:.42em .35em!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type + p {
-  padding:.48em .35em .62em!important;
+  margin-left:-1.0cqw!important;
+  width:calc(100% + 2.0cqw)!important;
+  box-sizing:border-box!important;
+  padding:.83em .35em .97em!important;
   min-height:2.45em!important;
 }
