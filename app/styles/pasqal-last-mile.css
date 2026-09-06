@@ -116,9 +116,7 @@
 }
 
 /* KPI: Beamer's three centers are ~229, 640 and 1051 px. Expand the grid from
-   the current 1104 px core to ~1188 px while preserving the middle center.
-   The bullet list gets its own compensating x offset and loses the extra 2em
-   vertical gap so its first line matches the golden baseline. */
+   the current 1104 px core to ~1188 px while preserving the middle center. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-core {
   left:3.59%!important;
   right:3.59%!important;
@@ -126,7 +124,14 @@
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-cell > ul {
   margin-top:0!important;
-  transform:translateX(4.84cqw)!important;
+  transform:translate(4.84cqw,3.45cqw)!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-cell > ul li:nth-child(n+2) {
+  position:relative!important;
+  top:.23cqw!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-cell h3 + p {
+  transform:translateY(.31cqw)!important;
 }
 
 /* Closing: both title and email are ~3 px lower than the Beamer bbox. */
@@ -135,4 +140,57 @@
 }
 .reveal .slides section.scientific-slide[data-slide-id="pasqal-closing"] .slide-core {
   top:48.77%!important;
+}
+
+/* Shared text bboxes measured directly from the golden PDF. The default
+   Quarkfoil title position is right for cards/focus/dark but ~18 px too high
+   for agenda/KPI/references. Keep those two Beamer frametitle baselines
+   distinct and use the PDF's 16.35 pt content-title scale. */
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-agenda"] .slide-title,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-title,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-references-"] .slide-title {
+  top:17.05%!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-title,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-title,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-title {
+  top:14.00%!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-agenda"] .slide-title :where(h1,h2,h3),
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-title :where(h1,h2,h3),
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-title :where(h1,h2,h3),
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-title :where(h1,h2,h3),
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-title :where(h1,h2,h3),
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-references-"] .slide-title :where(h1,h2,h3) {
+  font-size:3.605cqw!important;
+}
+
+/* The Beamer footer is 7.57 pt. At 1280x720 this is ~21.4 px; Quarkfoil's
+   previous 16.1 px footer was visibly too small and ~8 px too low. */
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-"] .slide-footer {
+  top:95.0%!important;
+  bottom:auto!important;
+  font-size:1.67cqw!important;
+  line-height:1!important;
+}
+
+/* Agenda body: exact 10.36 pt Beamer body scale. Keeping the existing 1.42
+   line-height expands the four rows to the measured rhythm. */
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-agenda"] .slide-cell {
+  font-size:2.284cqw!important;
+  line-height:1.42!important;
+}
+
+/* References use 9.46 pt body copy with round bullets, not the square itemize
+   marker used by the other PASQAL content families. */
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-references-"] .slide-cell {
+  font-size:2.086cqw!important;
+  line-height:1.38!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-references-"] .slide-cell ul {
+  list-style-type:disc!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-references-"] .slide-cell li::marker {
+  color:#00C887!important;
+  font-size:.72em!important;
 }
