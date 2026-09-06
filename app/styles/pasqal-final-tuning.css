@@ -26,9 +26,8 @@
   white-space:nowrap!important;
 }
 
-/* Focus: first italic paragraph is the deck subtitle, positioned relative to
-   the left cell so it lands on the Beamer subtitle baseline without leaving
-   the flow region. */
+/* Focus: retain the benchmark-positive left-copy scale and the proven right
+   card geometry; avoid the larger table experiment that regressed edges. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left {
   position:relative!important;
   font-size:2.28cqw!important;
@@ -37,12 +36,6 @@
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left h3 {
   font-size:2.18cqw!important;
   line-height:1.08!important;
-}
-.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left li {
-  margin:.18em 0!important;
-}
-.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left ul {
-  margin-bottom:.88em!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left > p:first-child:has(>em:only-child) {
   position:absolute!important;
@@ -53,36 +46,17 @@
   font-size:1.92cqw!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right {
-  margin-top:1.20cqw!important;
-  padding:0!important;
-  min-height:18.55cqw!important;
-  width:calc(100% + 3.2cqw)!important;
+  margin-top:1.7cqw!important;
+  padding:.34em .34em .48em!important;
+  min-height:15.9cqw!important;
   box-sizing:border-box!important;
-  overflow:hidden!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right h3 {
-  box-sizing:border-box!important;
-  display:flex!important;
-  align-items:center!important;
-  height:3.20cqw!important;
-  font-size:2.46cqw!important;
-  line-height:1!important;
-  padding:0 .32em!important;
+  padding:.43em .22em .39em!important;
   margin:0!important;
 }
-.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right table {
-  width:100%!important;
-  margin:1.42cqw 0 0!important;
-  font-size:2.32cqw!important;
-  line-height:1.05!important;
-  table-layout:fixed!important;
-}
-.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right tbody tr {
-  height:2.95cqw!important;
-}
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right :where(td,th) {
-  padding:0 .32em!important;
-  vertical-align:middle!important;
+  padding:.56em .18em!important;
 }
 
 /* Dark slide: lock every major block to its measured Beamer coordinates, then
@@ -125,25 +99,6 @@
   padding:.34em .35em!important;
   font-size:2.32cqw!important;
   line-height:1.30!important;
-}
-
-/* Agenda body size comes directly from the golden PDF text boxes. */
-.reveal .slides section.scientific-slide[data-slide-id="pasqal-agenda"] .slide-cell {
-  font-size:2.353cqw!important;
-  line-height:1.42!important;
-}
-
-/* Front cover metadata: match subtitle scale and the mint date treatment. */
-.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-cell {
-  font-size:1.80cqw!important;
-}
-.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-cell > :where(h1,h2,h3):first-child {
-  font-size:2.50cqw!important;
-  margin-bottom:1.55em!important;
-}
-.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-cell > p:last-child {
-  color:#00C887!important;
-  margin-top:1.10em!important;
 }
 
 /* Section divider: Beamer intentionally uses a much larger top-left logo than
