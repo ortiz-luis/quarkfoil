@@ -54,3 +54,16 @@
   padding:.83em .35em .97em!important;
   min-height:2.45em!important;
 }
+
+/* Section divider: Beamer intentionally uses a much larger top-left logo than
+   cover/closing. Keep its measured top/left but match the ~29.8% width. */
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-section-"] > .pasqal-logo {
+  width:29.8%!important;
+  top:10.07%!important;
+  left:6.93%!important;
+}
+
+/* KPI: keep the grid geometry, move the whole content block to the Beamer y baseline. */
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-core {
+  top:41.3%!important;
+}
