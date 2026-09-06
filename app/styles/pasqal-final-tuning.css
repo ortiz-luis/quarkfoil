@@ -26,8 +26,8 @@
   white-space:nowrap!important;
 }
 
-/* Focus: retain the benchmark-positive left-copy scale and the proven right
-   card geometry; avoid the larger table experiment that regressed edges. */
+/* Focus: retain the benchmark-positive left-copy scale. The right card is
+   shifted/widened to its measured Beamer bbox without changing column flow. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left {
   position:relative!important;
   font-size:2.28cqw!important;
@@ -46,33 +46,51 @@
   font-size:1.92cqw!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right {
-  margin-top:1.7cqw!important;
+  margin-top:1.23cqw!important;
   padding:.34em .34em .48em!important;
   min-height:15.9cqw!important;
+  width:calc(100% + 2.73cqw)!important;
+  transform:translateX(.47cqw)!important;
   box-sizing:border-box!important;
 }
-.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right h3 {
-  padding:.43em .22em .39em!important;
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right h3:first-child {
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  height:3.20cqw!important;
+  font-size:2.55cqw!important;
+  line-height:1!important;
+  padding:0 .22em!important;
   margin:0!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right table {
+  border-top:1px solid #173035!important;
+  border-bottom:1px solid #173035!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right tbody,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right tbody tr,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right tbody td {
+  background:transparent!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right :where(td,th) {
   padding:.56em .18em!important;
+  transform:scaleY(1.35)!important;
+  transform-origin:left center!important;
 }
 
-/* Dark slide: lock every major block to its measured Beamer coordinates, then
-   enlarge the typography without allowing normal flow to move the Takeaway. */
+/* Dark slide: lock major boxes, and match measured bullet/text baselines. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell {
   position:relative!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell > ul {
   position:absolute!important;
   left:1.95cqw!important;
-  top:8.8cqw!important;
+  top:7.8cqw!important;
   width:78cqw!important;
   margin:0!important;
   padding-left:1.4em!important;
   font-size:2.32cqw!important;
-  line-height:1.60!important;
+  line-height:1.40!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type {
   position:absolute!important;
@@ -96,9 +114,9 @@
   height:6.72cqw!important;
   box-sizing:border-box!important;
   margin:0!important;
-  padding:.34em .35em!important;
+  padding:.04em .35em .34em!important;
   font-size:2.32cqw!important;
-  line-height:1.30!important;
+  line-height:1.20!important;
 }
 
 /* Section divider: Beamer intentionally uses a much larger top-left logo than
