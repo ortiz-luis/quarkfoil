@@ -1,0 +1,51 @@
+/* Pixel-calibrated structural polish for cover and section divider families. */
+
+/* Cover: title ink is 7 px low and 4 px right at 1280x720. The content slot
+   keeps the golden x origin but is widened because the 11.36 pt subtitle is
+   substantially wider than the previous browser fallback scale. */
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-title {
+  left:6.78%!important;
+  top:19.03%!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-core {
+  left:6.78%!important;
+  width:60%!important;
+  top:44.0%!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-cell > h2:first-child {
+  font-size:2.50cqw!important;
+  line-height:1.12!important;
+  margin:0 0 2.00em!important;
+  color:#00C887!important;
+  font-weight:400!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-cell > p:nth-of-type(1) {
+  font-size:2.087cqw!important;
+  line-height:1.12!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-cell > p:nth-of-type(2) {
+  font-size:1.877cqw!important;
+  line-height:1.12!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-cell > p:nth-of-type(3) {
+  font-size:2.087cqw!important;
+  line-height:1.12!important;
+  color:#00C887!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] > .pasqal-logo {
+  left:6.70%!important;
+  width:15.07%!important;
+}
+
+/* Section dividers: both number and heading are 10 px low in the browser
+   render. The logo's visible artwork is 3 px right and ~7 px too narrow. */
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-section-"] .slide-core {
+  top:33.35%!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-section-"] .slide-title {
+  top:48.76%!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-section-"] > .pasqal-logo {
+  left:6.70%!important;
+  width:30.36%!important;
+}
