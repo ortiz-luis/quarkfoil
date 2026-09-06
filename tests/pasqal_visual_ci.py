@@ -39,21 +39,22 @@ def main() -> int:
         sections = driver.find_elements(By.CSS_SELECTOR, "#slides section.scientific-slide")
         count = len(sections)
         driver.execute_script(
+            "const imp=(e,p,v)=>e.style.setProperty(p,v,'important');"
             "const r=document.querySelector('.reveal');"
             "const ss=document.querySelector('.slides');"
-            "Object.assign(r.style,{position:'relative',width:'1280px',height:'720px',margin:'0',padding:'0',transform:'none',overflow:'hidden'});"
-            "Object.assign(ss.style,{position:'absolute',left:'0',top:'0',width:'1280px',height:'720px',margin:'0',padding:'0',transform:'none'});"
-            "document.documentElement.style.margin='0';document.documentElement.style.padding='0';"
-            "document.body.style.margin='0';document.body.style.padding='0';document.body.style.overflow='hidden';"
+            "[['position','fixed'],['left','0px'],['top','0px'],['width','1280px'],['height','720px'],['margin','0'],['padding','0'],['transform','none'],['overflow','hidden']].forEach(([p,v])=>imp(r,p,v));"
+            "[['position','absolute'],['left','0px'],['top','0px'],['width','1280px'],['height','720px'],['margin','0'],['padding','0'],['transform','none']].forEach(([p,v])=>imp(ss,p,v));"
+            "imp(document.documentElement,'margin','0');imp(document.documentElement,'padding','0');imp(document.documentElement,'overflow','hidden');"
+            "imp(document.body,'margin','0');imp(document.body,'padding','0');imp(document.body,'overflow','hidden');"
         )
 
         for index in range(count):
             driver.execute_script(
+                "const imp=(e,p,v)=>e.style.setProperty(p,v,'important');"
                 "const sections=[...document.querySelectorAll('#slides section.scientific-slide')];"
                 "sections.forEach((s,i)=>{"
-                "s.hidden=false;"
-                "s.classList.remove('present','past','future');"
-                "Object.assign(s.style,{display:i===arguments[0]?'block':'none',position:'absolute',left:'0',top:'0',right:'auto',bottom:'auto',width:'1280px',height:'720px',margin:'0',transform:'none',opacity:'1'});"
+                "s.hidden=false;s.classList.remove('present','past','future');"
+                "[['display',i===arguments[0]?'block':'none'],['position','absolute'],['left','0px'],['top','0px'],['right','auto'],['bottom','auto'],['width','1280px'],['height','720px'],['margin','0'],['transform','none'],['opacity','1']].forEach(([p,v])=>imp(s,p,v));"
                 "});",
                 index,
             )
@@ -62,13 +63,12 @@ def main() -> int:
             diag = driver.execute_script(
                 "const s=arguments[0];"
                 "const pick=(sel)=>{const e=s.querySelector(sel);if(!e)return null;const r=e.getBoundingClientRect();const c=getComputedStyle(e);return {sel,x:r.x,y:r.y,w:r.width,h:r.height,position:c.position,left:c.left,top:c.top,fontSize:c.fontSize,fontFamily:c.fontFamily,lineHeight:c.lineHeight,display:c.display,transform:c.transform};};"
-                "const logo=s.querySelector(':scope > .pasqal-logo');"
-                "const sr=s.getBoundingClientRect();"
+                "const logo=s.querySelector(':scope > .pasqal-logo');const sr=s.getBoundingClientRect();"
                 "return {id:s.dataset.slideId,slide:{x:sr.x,y:sr.y,w:sr.width,h:sr.height},title:pick('.slide-title'),titleHeading:pick('.slide-title h1,.slide-title h2,.slide-title h3'),core:pick('.slide-core'),cell:pick('.slide-cell'),footer:pick('.slide-footer'),frame:pick('.slide-frame'),logo:logo?{src:logo.currentSrc||logo.src,complete:logo.complete,naturalWidth:logo.naturalWidth,naturalHeight:logo.naturalHeight,box:pick(':scope > .pasqal-logo')}:null};",
                 slide,
             )
             diagnostics.append(diag)
-            slide.screenshot(str(OUT / f"page-{index + 1}.png"))
+            driver.save_screenshot(str(OUT / f"page-{index + 1}.png"))
 
         (OUT / "layout-diagnostics.json").write_text(json.dumps(diagnostics, indent=2), encoding="utf-8")
         broken = [item["id"] for item in diagnostics if not item.get("logo") or item["logo"].get("naturalWidth", 0) <= 0]
@@ -83,9 +83,7 @@ def main() -> int:
         print("PASQAL_CAPTURE_GEOMETRY=PASS")
         return 0
     finally:
-        driver.quit()
-        server.shutdown()
-        server.server_close()
+        driver.quit(); server.shutdown(); server.server_close()
 
 
 if __name__ == "__main__":
