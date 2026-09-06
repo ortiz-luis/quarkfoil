@@ -3,14 +3,14 @@
 /* Cards: measured against Beamer at 1280×720 equivalent.
    Target: ~43px header, ~47px body, ~27px inter-card gap. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 {
-  padding:.43em .38em!important;
-  margin:1.32em 0 0!important;
+  padding:.50em .38em!important;
+  margin:1.18em 0 0!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3:first-of-type {
   margin-top:0!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 + p {
-  padding:.62em .38em .68em!important;
+  padding:.74em .38em .79em!important;
   margin:0!important;
 }
 
@@ -29,30 +29,32 @@
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right {
   margin-top:1.7cqw!important;
-  padding:.24em .34em .34em!important;
+  padding:.34em .34em .48em!important;
+  min-height:15.9cqw!important;
+  box-sizing:border-box!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right h3 {
-  padding:.38em .22em .34em!important;
+  padding:.43em .22em .39em!important;
   margin:0!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right :where(td,th) {
-  padding:.44em .18em!important;
+  padding:.56em .18em!important;
 }
 
 /* Dark slide: bullets already line up. Match Beamer takeaway x/y/height. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type {
-  margin-top:4.08em!important;
+  margin-top:5.25em!important;
   margin-left:-1.0cqw!important;
   width:calc(100% + 2.0cqw)!important;
   box-sizing:border-box!important;
-  padding:.42em .35em!important;
+  padding:.45em .35em!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type + p {
   margin-left:-1.0cqw!important;
   width:calc(100% + 2.0cqw)!important;
   box-sizing:border-box!important;
-  padding:.83em .35em .97em!important;
-  min-height:2.45em!important;
+  padding:.93em .35em 1.18em!important;
+  min-height:3.0em!important;
 }
 
 /* Section divider: Beamer intentionally uses a much larger top-left logo than
