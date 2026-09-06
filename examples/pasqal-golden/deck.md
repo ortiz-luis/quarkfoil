@@ -11,9 +11,9 @@ defaults:
 # Quantum Advantage in Practice {#pasqal-front .layout-front footer="none"}
 
 ::: core
-## *Recent Publications from the Research Group*
+## Recent Publications from the Research Group
 
-**Dr. Jane Researcher**
+Dr. Jane Researcher
 
 Pasqal — Quantum Computing
 
