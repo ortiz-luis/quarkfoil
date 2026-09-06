@@ -1,17 +1,29 @@
 /* Final golden-tuning pass: only local component geometry. */
 
 /* Cards: measured against Beamer at 1280×720 equivalent.
-   Target: ~43px header, ~47px body, ~27px inter-card gap. */
+   Keep the golden box geometry fixed while matching the text scale. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 {
-  padding:.50em .38em!important;
-  margin:1.18em 0 0!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  height:3.15cqw!important;
+  font-size:2.46cqw!important;
+  line-height:1.02!important;
+  padding:0 .38em!important;
+  margin:2.34cqw 0 0!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3:first-of-type {
-  margin-top:0!important;
+  margin-top:.16cqw!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 + p {
-  padding:.74em .38em .79em!important;
-  margin:0!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  height:3.70cqw!important;
+  font-size:2.26cqw!important;
+  line-height:1.05!important;
+  padding:0 .38em!important;
+  margin:.39cqw 0 0!important;
 }
 
 /* Focus: first italic paragraph is the deck subtitle, positioned relative to
@@ -48,21 +60,46 @@
   padding:.56em .18em!important;
 }
 
-/* Dark slide: the box geometry is already matched to the golden. Keep the
-   proven text scale from pasqal-calibration.css and tune only box position. */
+/* Dark slide: lock every major block to its measured Beamer coordinates, then
+   enlarge the typography without allowing normal flow to move the Takeaway. */
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell {
+  position:relative!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell > ul {
+  position:absolute!important;
+  left:1.95cqw!important;
+  top:8.8cqw!important;
+  width:78cqw!important;
+  margin:0!important;
+  padding-left:1.4em!important;
+  font-size:2.32cqw!important;
+  line-height:1.60!important;
+}
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type {
-  margin-top:4.0em!important;
-  margin-left:-1.0cqw!important;
+  position:absolute!important;
+  left:-1.0cqw!important;
+  top:22.88cqw!important;
   width:calc(100% + 2.0cqw)!important;
+  height:3.28cqw!important;
   box-sizing:border-box!important;
-  padding:.45em .35em!important;
+  display:flex!important;
+  align-items:center!important;
+  margin:0!important;
+  padding:0 .35em!important;
+  font-size:2.46cqw!important;
+  line-height:1!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type + p {
-  margin-left:-1.0cqw!important;
+  position:absolute!important;
+  left:-1.0cqw!important;
+  top:26.47cqw!important;
   width:calc(100% + 2.0cqw)!important;
+  height:6.72cqw!important;
   box-sizing:border-box!important;
-  padding:.93em .35em 1.18em!important;
-  min-height:6.9cqw!important;
+  margin:0!important;
+  padding:.34em .35em!important;
+  font-size:2.32cqw!important;
+  line-height:1.30!important;
 }
 
 /* Section divider: Beamer intentionally uses a much larger top-left logo than
