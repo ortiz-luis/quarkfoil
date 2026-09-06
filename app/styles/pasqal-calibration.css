@@ -21,6 +21,16 @@
   line-height: 1 !important;
 }
 
+/* Match Beamer title baseline on content families. */
+.scientific-slide[data-slide-id="pasqal-agenda"] .slide-title,
+.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-title,
+.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-title,
+.scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-title,
+.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-title,
+.scientific-slide[data-slide-id^="pasqal-references-"] .slide-title {
+  top: 14.55% !important;
+}
+
 /* Front cover. */
 .scientific-slide[data-slide-id="pasqal-front"] .slide-title :where(h1,h2) {
   font-size: 5.147cqw !important;
@@ -54,8 +64,7 @@
 }
 
 /* Ordinary content and focus slides. */
-.scientific-slide[data-slide-id^="pasqal-content-"] .slide-core,
-.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-core {
+.scientific-slide[data-slide-id^="pasqal-content-"] .slide-core {
   top: 34.5% !important;
 }
 .scientific-slide[data-slide-id^="pasqal-content-"] .slide-cell h3,
@@ -63,21 +72,70 @@
   font-size: 2.18cqw !important;
   line-height: 1.08 !important;
 }
-.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell {
-  font-size: 2.20cqw !important;
-  line-height: 1.31 !important;
+
+/* Focus: subtitle at Beamer baseline, compact left copy and compact right card. */
+.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-core {
+  top: 41.6% !important;
+  bottom: 10% !important;
 }
-.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right table {
-  font-size: 1.90cqw !important;
-  line-height: 1.16 !important;
+.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell {
+  font-size: 1.58cqw !important;
+  line-height: 1.28 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell > p:first-child:has(>em:only-child) {
+  position: fixed !important;
+  left: 8.9% !important;
+  top: 25.9% !important;
+  width: 70% !important;
   color: #708387 !important;
   font-style: normal !important;
-  font-size: 1.92cqw !important;
-  margin: 0 0 2.25em !important;
+  font-size: 1.78cqw !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell > p:first-child > em { font-style: normal !important; }
+.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell h3 {
+  font-size: 1.72cqw !important;
+  margin: .15em 0 .28em !important;
+}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell ul {
+  margin: .15em 0 .72em !important;
+}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell li {
+  margin: .10em 0 !important;
+}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right {
+  align-self: start !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: .24em .34em .30em !important;
+  margin-top: 0 !important;
+  border-radius: .35em !important;
+}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right h3 {
+  margin: 0 0 .16em !important;
+  padding: .12em .18em !important;
+  background: #173035 !important;
+  color: #FFFFFF !important;
+  border-radius: .22em .22em 0 0 !important;
+}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right table {
+  font-size: 1.56cqw !important;
+  line-height: 1.08 !important;
+  margin: 0 !important;
+  border-collapse: collapse !important;
+}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right thead { display:none !important; }
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right :where(td,th) {
+  padding: .05em .18em !important;
+  border: 0 !important;
+}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right tbody tr:first-child td {
+  border-top: 1px solid #173035 !important;
+}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right tbody tr:last-child td {
+  border-bottom: 1px solid #173035 !important;
+}
 
 /* Section dividers: title heading is the section title; core contains number. */
 .scientific-slide[data-slide-id^="pasqal-section-"] .slide-title :where(h1,h2,h3) {
@@ -90,28 +148,44 @@
   line-height: 1 !important;
 }
 
-/* Dark content. */
+/* Dark content: preserve subtitle but push bullets/takeaway to Beamer baselines. */
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-title :where(h1,h2,h3) {
   font-size: 3.676cqw !important;
 }
+.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-core {
+  top: 26.0% !important;
+  bottom: 10% !important;
+}
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell {
-  font-size: 2.18cqw !important;
-  line-height: 1.34 !important;
+  font-size: 1.58cqw !important;
+  line-height: 1.30 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell > p:first-child:has(>em:only-child) {
-  font-size: 1.92cqw !important;
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  font-size: 1.78cqw !important;
   font-style: normal !important;
+  margin:0 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell > ul {
-  margin-top: 3.72em !important;
+  margin-top: 5.6em !important;
+  margin-bottom: 1.65em !important;
+}
+.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell li {
+  margin: .20em 0 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type {
-  font-size: 2.12cqw !important;
-  margin-top: 1.62em !important;
+  font-size: 1.72cqw !important;
+  margin: 0 !important;
+  padding: .10em .35em !important;
+  line-height: 1.08 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type + p {
-  font-size: 2.04cqw !important;
-  line-height: 1.24 !important;
+  font-size: 1.58cqw !important;
+  line-height: 1.18 !important;
+  margin:0 !important;
+  padding:.24em .35em .34em !important;
 }
 
 /* KPI and cards families. */
@@ -124,23 +198,41 @@
 .scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-cell > ul {
   font-size: 1.86cqw !important;
 }
+
+/* Cards: retain text scale, tighten accumulated vertical spacing. */
+.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-core {
+  top: 40.4% !important;
+  bottom: 9.5% !important;
+}
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell {
   font-size: 1.92cqw !important;
 }
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell > p:first-child:has(>em:only-child) {
+  position: fixed !important;
+  left: 8.9% !important;
+  top: 26.0% !important;
+  width: 70% !important;
   color:#708387 !important;
   font-style:normal !important;
   font-size:1.86cqw !important;
-  margin:0 0 1.42em !important;
+  margin:0 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell > p:first-child > em { font-style:normal !important; }
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 {
-  font-size: 2.18cqw !important;
+  font-size: 1.72cqw !important;
+  line-height:1.08 !important;
+  margin: .36em 0 0 !important;
+  padding: .12em .38em !important;
 }
+.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3:first-of-type { margin-top:0 !important; }
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 + p {
-  font-size: 1.92cqw !important;
-  font-style: italic !important;
+  font-size: 1.58cqw !important;
+  line-height:1.15 !important;
+  font-style: normal !important;
+  margin:0 0 .34em !important;
+  padding:.13em .38em .18em !important;
 }
+.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 + p em { font-style:italic !important; }
 
 /* References. */
 .scientific-slide[data-slide-id^="pasqal-references-"] .slide-core {
