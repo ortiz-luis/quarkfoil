@@ -47,13 +47,13 @@ June 2026
 *Peer-reviewed, 2024–2026*
 
 ### Neutral-atom quantum processors at scale
-Nature Physics (2025). Coherent control of a 1,000-qubit register.
+*Nature Physics* (2025). Coherent control of a 1,000-qubit register.
 
 ### Analog optimisation for industrial graphs
-PRX Quantum (2025). MIS problems on Rydberg arrays, measured speedup.
+*PRX Quantum* (2025). MIS problems on Rydberg arrays, measured speedup.
 
 ### Error mitigation for variational workflows
-Quantum (2026). Order-of-magnitude lower bias, no extra qubits.
+*Quantum* (2026). Order-of-magnitude lower bias, no extra qubits.
 :::
 
 ---
