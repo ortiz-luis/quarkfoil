@@ -25,32 +25,25 @@ def main() -> int:
     options.add_argument("--headless")
     driver = webdriver.Firefox(options=options)
     try:
-        driver.set_window_size(1890, 1063)
-        driver.get(f"http://127.0.0.1:{server.server_port}/")
+        driver.set_window_size(1280, 720)
+        driver.get(f"http://127.0.0.1:{server.server_port}/print.html?preview")
         WebDriverWait(driver, 30).until(
-            lambda d: d.find_element(By.ID, "save-state").text == "Saved"
+            lambda d: d.execute_script("return document.documentElement.dataset.previewReady === 'true'")
         )
         WebDriverWait(driver, 30).until(
             lambda d: len(d.find_elements(By.CSS_SELECTOR, "#slides section.scientific-slide")) > 0
         )
 
-        count = len(driver.find_elements(By.CSS_SELECTOR, "#slides section.scientific-slide"))
+        sections = driver.find_elements(By.CSS_SELECTOR, "#slides section.scientific-slide")
+        count = len(sections)
         driver.execute_script(
-            "document.querySelector('#toolbar').style.display='none';"
-            "document.querySelector('#slide-sidebar').style.display='none';"
-            "document.querySelector('#properties').style.display='none';"
-            "document.querySelector('.notes-pane').style.display='none';"
-            "document.querySelector('#notes-resizer').style.display='none';"
-            "document.querySelector('#workspace').style.display='block';"
-            "document.querySelector('#stage').style.position='fixed';"
-            "document.querySelector('#stage').style.inset='0';"
-            "document.querySelector('#stage').style.padding='0';"
-            "document.querySelector('.reveal').style.width='1890px';"
-            "document.querySelector('.reveal').style.height='1063px';"
-            "document.querySelector('.slides').style.width='1890px';"
-            "document.querySelector('.slides').style.height='1063px';"
+            "document.querySelector('.reveal').style.width='1280px';"
+            "document.querySelector('.reveal').style.height='720px';"
+            "document.querySelector('.slides').style.width='1280px';"
+            "document.querySelector('.slides').style.height='720px';"
             "document.querySelector('.slides').style.transform='none';"
             "document.body.style.margin='0';"
+            "document.body.style.overflow='hidden';"
         )
 
         for index in range(count):
@@ -58,9 +51,10 @@ def main() -> int:
                 "const sections=[...document.querySelectorAll('#slides section.scientific-slide')];"
                 "sections.forEach((s,i)=>{"
                 "s.hidden=false;"
+                "s.classList.remove('present','past','future');"
                 "s.style.display=i===arguments[0]?'block':'none';"
                 "s.style.position='absolute';s.style.inset='0';"
-                "s.style.width='1890px';s.style.height='1063px';"
+                "s.style.width='1280px';s.style.height='720px';"
                 "s.style.margin='0';s.style.transform='none';s.style.opacity='1';"
                 "});",
                 index,
