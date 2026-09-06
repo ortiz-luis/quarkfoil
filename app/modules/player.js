@@ -2,6 +2,7 @@ import { parseDeck } from "./parser.js";
 import { renderDeck, syncVideoPlayback } from "./render.js";
 import { prepareBibliography } from "./bibliography.js";
 import { openPrintDialogWhenReady, pdfPrintUrl, pdfPrintView, printShortcut, waitForRenderAssets } from "./print.js";
+import { applyPasqalRuntime } from "./pasqal-runtime.js";
 
 const localPlayer = document.body.dataset.playerSource === "local";
 const search = new URLSearchParams(location.search);
@@ -47,6 +48,7 @@ async function initialize() {
     } else bibliographySource = await bibliographyResponse.text();
   }
   renderDeck(deck, document.querySelector("#slides"), assetPath, prepareBibliography(bibliographySource, deck, bibliographyPdfs), { includeTrashed: false });
+  applyPasqalRuntime(document);
   const reveal = new window.Reveal(document.querySelector(".reveal"), {
     controls: !previewView,
     progress: !previewView,
