@@ -43,7 +43,7 @@
 
 /* Dark slide: bullets already line up. Match Beamer takeaway x/y/height. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type {
-  margin-top:1.55em!important;
+  margin-top:4.0em!important;
   margin-left:-1.0cqw!important;
   width:calc(100% + 2.0cqw)!important;
   box-sizing:border-box!important;
@@ -54,7 +54,7 @@
   width:calc(100% + 2.0cqw)!important;
   box-sizing:border-box!important;
   padding:.93em .35em 1.18em!important;
-  min-height:3.55em!important;
+  min-height:6.9cqw!important;
 }
 
 /* Section divider: Beamer intentionally uses a much larger top-left logo than
