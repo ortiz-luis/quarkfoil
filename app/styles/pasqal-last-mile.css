@@ -1,0 +1,44 @@
+/* Last-mile visual calibration against the 1280x720 Beamer golden.
+   Keep these overrides local to the families with measured residual offsets. */
+
+/* Cover: the golden uses the same title size, but a much larger baseline step
+   between its two title lines. Shift the title box up so line 1 stays fixed,
+   then reproduce that baseline spacing. */
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-title {
+  top:20.0%!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-title :where(h1,h2) {
+  line-height:1.28!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-core {
+  top:44.0%!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-cell > :where(h1,h2,h3):first-child {
+  margin-bottom:2.80em!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-cell > p:last-child {
+  color:#00C887!important;
+  transform:translateY(1.55cqw)!important;
+}
+
+/* KPI: Beamer's three centers are ~229, 640 and 1051 px. Expand the grid from
+   the current 1104 px core to ~1188 px while preserving the middle center.
+   The bullet list gets its own compensating x offset and loses the extra 2em
+   vertical gap so its first line matches the golden baseline. */
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-core {
+  left:3.59%!important;
+  right:3.59%!important;
+  top:41.85%!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-cell > ul {
+  margin-top:0!important;
+  transform:translateX(4.84cqw)!important;
+}
+
+/* Closing: both title and email are ~3 px lower than the Beamer bbox. */
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-closing"] .slide-title {
+  top:37.38%!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-closing"] .slide-core {
+  top:48.77%!important;
+}
