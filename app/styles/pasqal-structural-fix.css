@@ -29,33 +29,38 @@
   transform:none!important;
 }
 
-/* section::after is used by Reveal in some rendering contexts. Keep PASQAL
-   logo on the frame instead so editor, player and print share the same asset. */
-.scientific-slide[data-slide-id^="pasqal-"]::after { content:none!important; }
+/* Logos are real DOM images so screen, screenshot and PDF all render the same
+   asset. Pseudo-element logos are explicitly disabled. */
+.scientific-slide[data-slide-id^="pasqal-"]::after,
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-"] .slide-frame::after {
-  content:""!important;
-  display:block!important;
-  position:absolute!important;
-  top:7.9%;
-  right:6.98%;
-  width:14.55%;
-  aspect-ratio:277/76;
-  background-image:url("../assets/pasqal-logo-light.svg")!important;
-  background-position:center!important;
-  background-size:contain!important;
-  background-repeat:no-repeat!important;
-  filter:brightness(0) saturate(100%) invert(14%) sepia(18%) saturate(891%) hue-rotate(139deg) brightness(88%) contrast(91%);
-  z-index:12!important;
-  pointer-events:none;
+  content:none!important;
+  display:none!important;
 }
-.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-frame::after,
-.reveal .slides section.scientific-slide[data-slide-id^="pasqal-section-"] .slide-frame::after,
-.reveal .slides section.scientific-slide[data-slide-id="pasqal-closing"] .slide-frame::after {
-  top:10.07%;
-  left:6.93%;
-  right:auto;
-  width:14.66%;
-  filter:none;
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-"] > .pasqal-logo {
+  position:absolute!important;
+  top:7.9%!important;
+  right:6.98%!important;
+  left:auto!important;
+  width:14.55%!important;
+  height:auto!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  display:block!important;
+  object-fit:contain!important;
+  z-index:30!important;
+  pointer-events:none!important;
+  filter:brightness(0) saturate(100%) invert(14%) sepia(18%) saturate(891%) hue-rotate(139deg) brightness(88%) contrast(91%)!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] > .pasqal-logo,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-section-"] > .pasqal-logo,
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-closing"] > .pasqal-logo {
+  top:10.07%!important;
+  left:6.93%!important;
+  right:auto!important;
+  width:14.66%!important;
+  filter:none!important;
 }
 
 /* Content-page numbering is assigned by pasqal-runtime.js. */
