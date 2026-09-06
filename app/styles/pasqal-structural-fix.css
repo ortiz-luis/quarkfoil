@@ -55,12 +55,17 @@
 }
 .reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] > .pasqal-logo,
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-section-"] > .pasqal-logo,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] > .pasqal-logo,
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-closing"] > .pasqal-logo {
+  filter:none!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] > .pasqal-logo,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-section-"] > .pasqal-logo,
 .reveal .slides section.scientific-slide[data-slide-id="pasqal-closing"] > .pasqal-logo {
   top:10.07%!important;
   left:6.93%!important;
   right:auto!important;
   width:14.66%!important;
-  filter:none!important;
 }
 
 /* Content-page numbering is assigned by pasqal-runtime.js. */
