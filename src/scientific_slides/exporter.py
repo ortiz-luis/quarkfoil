@@ -27,9 +27,16 @@ EXPORT_FILES = {
     "modules/bibliography.js": "quarkfoil/bibliography.js",
     "modules/player.js": "quarkfoil/player.js",
     "modules/print.js": "quarkfoil/print.js",
+    "modules/pasqal-runtime.js": "quarkfoil/pasqal-runtime.js",
     "styles/layout.css": "quarkfoil/layout.css",
     "styles/themes.css": "quarkfoil/themes.css",
     "styles/player.css": "quarkfoil/player.css",
+    "styles/pasqal.css": "quarkfoil/pasqal.css",
+    "styles/pasqal-calibration.css": "quarkfoil/pasqal-calibration.css",
+    "styles/pasqal-structural-fix.css": "quarkfoil/pasqal-structural-fix.css",
+    "styles/pasqal-final-tuning.css": "quarkfoil/pasqal-final-tuning.css",
+    "styles/pasqal-last-mile.css": "quarkfoil/pasqal-last-mile.css",
+    "styles/pasqal-structural-polish.css": "quarkfoil/pasqal-structural-polish.css",
 }
 
 LOCAL_FILES = {
