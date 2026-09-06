@@ -1,5 +1,20 @@
 /* Final golden-tuning pass: only local component geometry. */
 
+/* Exact Beamer chevron. The source theme draws a 0.15*paperwidth mitered
+   stroke through (72%,0) -> (100%,50%) -> (72%,100%). Replace the earlier
+   polygon approximation with that vector stroke; the base/band stay below. */
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-front"] .slide-frame::before,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-section-"] .slide-frame::before,
+.reveal .slides section.scientific-slide[data-slide-id="pasqal-closing"] .slide-frame::before {
+  inset:0!important;
+  clip-path:none!important;
+  background-color:transparent!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720' preserveAspectRatio='none'%3E%3Cpath d='M921.6 0 L1280 360 L921.6 720' fill='none' stroke='%23173035' stroke-width='192' stroke-linejoin='miter' stroke-linecap='butt'/%3E%3C/svg%3E")!important;
+  background-size:100% 100%!important;
+  background-position:0 0!important;
+  background-repeat:no-repeat!important;
+}
+
 /* Cards: measured against Beamer at 1280×720 equivalent.
    Keep the golden box geometry fixed while matching the text scale. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 {
