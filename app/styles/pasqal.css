@@ -28,7 +28,7 @@
 
 .scientific-slide[data-slide-id^="pasqal-"] .slide-frame{position:absolute;inset:0;display:block;width:100%;height:100%;}
 .scientific-slide[data-slide-id^="pasqal-"] .slide-title{position:absolute;left:10%;right:21%;top:14.35%;margin:0;padding:0;color:inherit;font-size:1em;font-weight:700;line-height:1.03;z-index:3;}
-.scientific-slide[data-slide-id^="pasqal-"] .slide-title::before{content:"";position:absolute;left:-3.12%;top:-.25em;width:1.16%;min-width:7px;height:1.72em;background:var(--pasqal-mint);}
+.scientific-slide[data-slide-id^="pasqal-"] .slide-title::before{content:"";position:absolute;left:-4.53%;top:-.12em;width:1.70%;min-width:7px;height:1.15em;background:var(--pasqal-mint);}
 .scientific-slide[data-slide-id^="pasqal-"] .slide-title :where(h1,h2,h3){margin:0;font-size:1.47em;font-weight:700;line-height:1.03;color:inherit;}
 .scientific-slide[data-slide-id^="pasqal-"] .slide-core{position:absolute;left:6.875%;right:6.875%;top:33.5%;bottom:8%;width:auto;height:auto;}
 .scientific-slide[data-slide-id^="pasqal-"] .slide-grid,.scientific-slide[data-slide-id^="pasqal-"] .slide-cell{width:100%;height:100%;}
@@ -95,7 +95,7 @@
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type+p{margin-top:0;padding:.5em .55em .85em;border-radius:0 0 .3em .3em;background:#173035;color:#E1F6E9;}
 
 /* cards */
-.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-core{top:26.1%;}
+.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-core{left:6.1%;right:6.1%;top:29.45%;}
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell{display:grid;grid-template-columns:1fr;grid-auto-rows:min-content;align-content:start;row-gap:0;}
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3{margin:.72em 0 0;padding:.28em .52em;border-radius:.35em .35em 0 0;background:#173035;color:#FFF;font-size:.66em;}
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3+p{margin:0 0 .72em;padding:.36em .52em .5em;border-radius:0 0 .35em .35em;background:#E1F6E9;color:#173035;font-size:.62em;}
@@ -110,15 +110,18 @@
 .scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-cell>ul{grid-column:1/4;grid-row:3;text-align:left;margin-top:2em;}
 
 /* focus */
-.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-core{top:34.5%;}.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-grid{gap:4.2%;}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-core{top:34.5%;}.scientific-slide[data-slide-id^="pasqal-focus-"] .slide-grid{gap:5.7%;}
 .scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell h3{color:#173035;font-size:.82em;margin:.25em 0 .45em;}
 .scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left{transform:translateY(-3.5%);}
-.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right{height:auto!important;align-self:start!important;margin-top:10%;padding:.45em .65em .55em;border-radius:.45em;background:#E1F6E9;}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right{height:auto!important;align-self:start!important;margin-top:14.5%;padding:.62em .65em .75em;border-radius:.45em;background:#E1F6E9;overflow:hidden;}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right h3:first-child{margin:-.62em -.65em .4em!important;padding:.25em .4em!important;background:#173035!important;color:#FFF!important;border-radius:.35em .35em 0 0!important;}
 .scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right table{background:transparent;border:0;font-size:.82em;}
-.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right :where(th,td){padding:.08em .18em!important;}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right thead{display:none!important;}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right tbody{border-top:1px solid #173035;border-bottom:1px solid #173035;}
+.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right :where(th,td){padding:.08em .18em!important;background:transparent!important;border:0!important;}
 
 /* references */
-.scientific-slide[data-slide-id^="pasqal-references-"] .slide-core{top:63.5%;}
+.scientific-slide[data-slide-id^="pasqal-references-"] .slide-core{top:47.6%;}
 .scientific-slide[data-slide-id^="pasqal-references-"] .slide-cell{font-size:.62em;line-height:1.23;}
 .scientific-slide[data-slide-id^="pasqal-references-"] .slide-cell li+li{margin-top:.72em;}
 
