@@ -48,15 +48,8 @@
   padding:.56em .18em!important;
 }
 
-/* Dark slide: box geometry is already matched. The Beamer body text is ~1.47x
-   taller than the prior Quarkfoil raster at equal 1280×720 resolution. */
-.reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell > p:first-child:has(>em:only-child) {
-  font-size:1.92cqw!important;
-}
-.reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell > ul {
-  font-size:2.32cqw!important;
-  line-height:1.30!important;
-}
+/* Dark slide: the box geometry is already matched to the golden. Keep the
+   proven text scale from pasqal-calibration.css and tune only box position. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type {
   margin-top:4.0em!important;
   margin-left:-1.0cqw!important;
@@ -70,8 +63,6 @@
   box-sizing:border-box!important;
   padding:.93em .35em 1.18em!important;
   min-height:6.9cqw!important;
-  font-size:2.32cqw!important;
-  line-height:1.18!important;
 }
 
 /* Section divider: Beamer intentionally uses a much larger top-left logo than
