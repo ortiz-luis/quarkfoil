@@ -66,16 +66,21 @@ def main() -> int:
             diag = driver.execute_script(
                 "const s=arguments[0];"
                 "const pick=(sel)=>{const e=s.querySelector(sel);if(!e)return null;const r=e.getBoundingClientRect();const c=getComputedStyle(e);return {sel,x:r.x,y:r.y,w:r.width,h:r.height,position:c.position,left:c.left,top:c.top,fontSize:c.fontSize,fontFamily:c.fontFamily,lineHeight:c.lineHeight,display:c.display,transform:c.transform};};"
+                "const logo=s.querySelector(':scope > .pasqal-logo');"
                 "const sr=s.getBoundingClientRect();"
-                "return {id:s.dataset.slideId,slide:{x:sr.x,y:sr.y,w:sr.width,h:sr.height},title:pick('.slide-title'),titleHeading:pick('.slide-title h1,.slide-title h2,.slide-title h3'),core:pick('.slide-core'),cell:pick('.slide-cell'),footer:pick('.slide-footer'),frame:pick('.slide-frame')};",
+                "return {id:s.dataset.slideId,slide:{x:sr.x,y:sr.y,w:sr.width,h:sr.height},title:pick('.slide-title'),titleHeading:pick('.slide-title h1,.slide-title h2,.slide-title h3'),core:pick('.slide-core'),cell:pick('.slide-cell'),footer:pick('.slide-footer'),frame:pick('.slide-frame'),logo:logo?{src:logo.currentSrc||logo.src,complete:logo.complete,naturalWidth:logo.naturalWidth,naturalHeight:logo.naturalHeight,box:pick(':scope > .pasqal-logo')}:null};",
                 slide,
             )
             diagnostics.append(diag)
             slide.screenshot(str(OUT / f"page-{index + 1}.png"))
 
         (OUT / "layout-diagnostics.json").write_text(json.dumps(diagnostics, indent=2), encoding="utf-8")
+        broken = [item["id"] for item in diagnostics if not item.get("logo") or item["logo"].get("naturalWidth", 0) <= 0]
+        if broken:
+            raise RuntimeError(f"PASQAL logo failed to load on: {', '.join(broken)}")
         print(json.dumps(diagnostics, indent=2))
         print(f"PASQAL_VISUAL_SCREENSHOTS={count}")
+        print("PASQAL_LOGOS=PASS")
         return 0
     finally:
         driver.quit()
