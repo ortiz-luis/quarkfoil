@@ -2,6 +2,7 @@
 @import url("./pasqal-calibration.css");
 @import url("./pasqal-structural-fix.css");
 @import url("./pasqal-final-tuning.css");
+@import url("./pasqal-last-mile.css");
 
 .theme-scientific-light {
   --slide-background: #fbfcfd;
