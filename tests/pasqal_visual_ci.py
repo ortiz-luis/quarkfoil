@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import threading
 import time
 from pathlib import Path
@@ -24,6 +25,7 @@ def main() -> int:
     options = webdriver.FirefoxOptions()
     options.add_argument("--headless")
     driver = webdriver.Firefox(options=options)
+    diagnostics = []
     try:
         driver.set_window_size(1280, 720)
         driver.get(f"http://127.0.0.1:{server.server_port}/print.html?preview")
@@ -61,8 +63,18 @@ def main() -> int:
             )
             time.sleep(0.1)
             slide = driver.find_elements(By.CSS_SELECTOR, "#slides section.scientific-slide")[index]
+            diag = driver.execute_script(
+                "const s=arguments[0];"
+                "const pick=(sel)=>{const e=s.querySelector(sel);if(!e)return null;const r=e.getBoundingClientRect();const c=getComputedStyle(e);return {sel,x:r.x,y:r.y,w:r.width,h:r.height,position:c.position,left:c.left,top:c.top,fontSize:c.fontSize,fontFamily:c.fontFamily,lineHeight:c.lineHeight,display:c.display,transform:c.transform};};"
+                "const sr=s.getBoundingClientRect();"
+                "return {id:s.dataset.slideId,slide:{x:sr.x,y:sr.y,w:sr.width,h:sr.height},title:pick('.slide-title'),titleHeading:pick('.slide-title h1,.slide-title h2,.slide-title h3'),core:pick('.slide-core'),cell:pick('.slide-cell'),footer:pick('.slide-footer'),frame:pick('.slide-frame')};",
+                slide,
+            )
+            diagnostics.append(diag)
             slide.screenshot(str(OUT / f"page-{index + 1}.png"))
 
+        (OUT / "layout-diagnostics.json").write_text(json.dumps(diagnostics, indent=2), encoding="utf-8")
+        print(json.dumps(diagnostics, indent=2))
         print(f"PASQAL_VISUAL_SCREENSHOTS={count}")
         return 0
     finally:
