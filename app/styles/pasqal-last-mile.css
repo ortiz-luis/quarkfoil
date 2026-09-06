@@ -30,6 +30,7 @@
   min-height:18.67cqw!important;
   box-sizing:border-box!important;
   overflow:hidden!important;
+  position:relative!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right h3:first-child {
   width:100%!important;
@@ -49,14 +50,69 @@
   line-height:1.08!important;
   table-layout:fixed!important;
   border-collapse:collapse!important;
+  border:0!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right :where(td,th) {
   padding:.12em .42em!important;
   transform:none!important;
   vertical-align:middle!important;
+  border:0!important;
+  box-sizing:border-box!important;
 }
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right td:first-child {
-  width:33.5%!important;
+  width:34%!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right tbody tr:first-child td,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right tbody tr:last-child td {
+  border:0!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right::before,
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right::after {
+  content:""!important;
+  position:absolute!important;
+  left:1.0cqw!important;
+  width:30.5cqw!important;
+  height:1px!important;
+  background:#173035!important;
+  z-index:4!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right::before { top:4.53cqw!important; }
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right::after { top:17.73cqw!important; }
+
+/* Focus left copy: the title column in Beamer starts 30 px farther left than
+   Quarkfoil's grid, while the bullet text starts only ~9 px farther left.
+   Tune headings and lists independently, then match the measured row rhythm. */
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left > p:first-child:has(>em:only-child) {
+  left:1.88cqw!important;
+  top:-8.18cqw!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left h3 {
+  position:relative!important;
+  left:-2.34cqw!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left h3:first-of-type {
+  top:.47cqw!important;
+  margin-bottom:.51em!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left h3:nth-of-type(2) {
+  top:.55cqw!important;
+  margin-bottom:.50em!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left ul {
+  position:relative!important;
+  left:-.70cqw!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left ul:first-of-type {
+  top:.70cqw!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left ul:first-of-type li {
+  margin:.10em 0 .90cqw!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left ul:last-of-type {
+  top:1.00cqw!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left ul:last-of-type li {
+  margin:.10em 0 .62cqw!important;
 }
 
 /* KPI: Beamer's three centers are ~229, 640 and 1051 px. Expand the grid from
