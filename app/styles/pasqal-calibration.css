@@ -9,15 +9,15 @@
 
 /* Shared content scale calibrated from rasterized Beamer golden pages. */
 .scientific-slide[data-slide-id^="pasqal-"] .slide-title :where(h1,h2,h3) {
-  font-size: 3.52cqw !important;
+  font-size: 3.676cqw !important;
   line-height: 1.03 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-"] .slide-cell {
-  font-size: 1.95cqw !important;
+  font-size: 2.12cqw !important;
   line-height: 1.34 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-"] .slide-footer {
-  font-size: 1.12cqw !important;
+  font-size: 1.26cqw !important;
   line-height: 1 !important;
 }
 
@@ -49,7 +49,7 @@
 
 /* Agenda. */
 .scientific-slide[data-slide-id="pasqal-agenda"] .slide-cell {
-  font-size: 1.92cqw !important;
+  font-size: 2.02cqw !important;
   line-height: 1.42 !important;
 }
 
@@ -60,21 +60,21 @@
 }
 .scientific-slide[data-slide-id^="pasqal-content-"] .slide-cell h3,
 .scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell h3 {
-  font-size: 1.95cqw !important;
+  font-size: 2.18cqw !important;
   line-height: 1.08 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell {
-  font-size: 1.72cqw !important;
+  font-size: 2.20cqw !important;
   line-height: 1.31 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right table {
-  font-size: 1.56cqw !important;
+  font-size: 1.90cqw !important;
   line-height: 1.16 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell > p:first-child:has(>em:only-child) {
   color: #708387 !important;
   font-style: normal !important;
-  font-size: 1.68cqw !important;
+  font-size: 1.92cqw !important;
   margin: 0 0 2.25em !important;
 }
 .scientific-slide[data-slide-id^="pasqal-focus-"] .slide-cell > p:first-child > em { font-style: normal !important; }
@@ -92,53 +92,53 @@
 
 /* Dark content. */
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-title :where(h1,h2,h3) {
-  font-size: 3.52cqw !important;
+  font-size: 3.676cqw !important;
 }
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell {
-  font-size: 1.82cqw !important;
+  font-size: 2.18cqw !important;
   line-height: 1.34 !important;
 }
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell > p:first-child:has(>em:only-child) {
-  font-size: 1.72cqw !important;
+  font-size: 1.92cqw !important;
   font-style: normal !important;
 }
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell > ul {
-  margin-top: 4.35em !important;
+  margin-top: 3.72em !important;
 }
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type {
-  font-size: 1.78cqw !important;
-  margin-top: 2.05em !important;
+  font-size: 2.12cqw !important;
+  margin-top: 1.62em !important;
 }
 .scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type + p {
-  font-size: 1.68cqw !important;
+  font-size: 2.04cqw !important;
   line-height: 1.24 !important;
 }
 
 /* KPI and cards families. */
 .scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-cell {
-  font-size: 1.72cqw !important;
+  font-size: 1.94cqw !important;
 }
 .scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-cell h3 {
-  font-size: 4.28cqw !important;
+  font-size: 4.50cqw !important;
 }
 .scientific-slide[data-slide-id^="pasqal-kpi-"] .slide-cell > ul {
-  font-size: 1.68cqw !important;
+  font-size: 1.86cqw !important;
 }
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell {
-  font-size: 1.72cqw !important;
+  font-size: 1.92cqw !important;
 }
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell > p:first-child:has(>em:only-child) {
   color:#708387 !important;
   font-style:normal !important;
-  font-size:1.68cqw !important;
-  margin:0 0 1.55em !important;
+  font-size:1.86cqw !important;
+  margin:0 0 1.42em !important;
 }
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell > p:first-child > em { font-style:normal !important; }
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 {
-  font-size: 1.92cqw !important;
+  font-size: 2.18cqw !important;
 }
 .scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 + p {
-  font-size: 1.64cqw !important;
+  font-size: 1.92cqw !important;
   font-style: italic !important;
 }
 
@@ -147,7 +147,7 @@
   top: 47.6% !important;
 }
 .scientific-slide[data-slide-id^="pasqal-references-"] .slide-cell {
-  font-size: 1.72cqw !important;
+  font-size: 1.95cqw !important;
   line-height: 1.23 !important;
 }
 
@@ -156,5 +156,5 @@
   font-size: 5.147cqw !important;
 }
 .scientific-slide[data-slide-id="pasqal-closing"] .slide-cell {
-  font-size: 1.82cqw !important;
+  font-size: 1.92cqw !important;
 }
