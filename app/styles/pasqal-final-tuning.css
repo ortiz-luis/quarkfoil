@@ -1,11 +1,5 @@
 /* Final golden-tuning pass: only local component geometry. */
 
-/* The Beamer golden embeds NimbusSanL. Pin the same family explicitly before
-   any local geometry overrides so Chromium does not silently fall back. */
-.reveal .slides section.scientific-slide[data-slide-id^="pasqal-"] {
-  font-family:"Nimbus Sans L","Nimbus Sans",Helvetica,Arial,sans-serif!important;
-}
-
 /* Cards: measured against Beamer at 1280×720 equivalent.
    Keep the golden box geometry fixed while matching the text scale. */
 .reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 {
