@@ -39,13 +39,12 @@ def main() -> int:
         sections = driver.find_elements(By.CSS_SELECTOR, "#slides section.scientific-slide")
         count = len(sections)
         driver.execute_script(
-            "document.querySelector('.reveal').style.width='1280px';"
-            "document.querySelector('.reveal').style.height='720px';"
-            "document.querySelector('.slides').style.width='1280px';"
-            "document.querySelector('.slides').style.height='720px';"
-            "document.querySelector('.slides').style.transform='none';"
-            "document.body.style.margin='0';"
-            "document.body.style.overflow='hidden';"
+            "const r=document.querySelector('.reveal');"
+            "const ss=document.querySelector('.slides');"
+            "Object.assign(r.style,{position:'relative',width:'1280px',height:'720px',margin:'0',padding:'0',transform:'none',overflow:'hidden'});"
+            "Object.assign(ss.style,{position:'absolute',left:'0',top:'0',width:'1280px',height:'720px',margin:'0',padding:'0',transform:'none'});"
+            "document.documentElement.style.margin='0';document.documentElement.style.padding='0';"
+            "document.body.style.margin='0';document.body.style.padding='0';document.body.style.overflow='hidden';"
         )
 
         for index in range(count):
@@ -54,10 +53,7 @@ def main() -> int:
                 "sections.forEach((s,i)=>{"
                 "s.hidden=false;"
                 "s.classList.remove('present','past','future');"
-                "s.style.display=i===arguments[0]?'block':'none';"
-                "s.style.position='absolute';s.style.inset='0';"
-                "s.style.width='1280px';s.style.height='720px';"
-                "s.style.margin='0';s.style.transform='none';s.style.opacity='1';"
+                "Object.assign(s.style,{display:i===arguments[0]?'block':'none',position:'absolute',left:'0',top:'0',right:'auto',bottom:'auto',width:'1280px',height:'720px',margin:'0',transform:'none',opacity:'1'});"
                 "});",
                 index,
             )
@@ -76,11 +72,15 @@ def main() -> int:
 
         (OUT / "layout-diagnostics.json").write_text(json.dumps(diagnostics, indent=2), encoding="utf-8")
         broken = [item["id"] for item in diagnostics if not item.get("logo") or item["logo"].get("naturalWidth", 0) <= 0]
+        cropped = [item["id"] for item in diagnostics if round(item["slide"]["w"]) != 1280 or round(item["slide"]["h"]) != 720 or abs(item["slide"]["x"]) > 0.5 or abs(item["slide"]["y"]) > 0.5]
         if broken:
             raise RuntimeError(f"PASQAL logo failed to load on: {', '.join(broken)}")
+        if cropped:
+            raise RuntimeError(f"PASQAL capture geometry is not exact 1280x720 on: {', '.join(cropped)}")
         print(json.dumps(diagnostics, indent=2))
         print(f"PASQAL_VISUAL_SCREENSHOTS={count}")
         print("PASQAL_LOGOS=PASS")
+        print("PASQAL_CAPTURE_GEOMETRY=PASS")
         return 0
     finally:
         driver.quit()
