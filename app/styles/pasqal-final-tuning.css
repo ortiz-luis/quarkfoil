@@ -1,0 +1,50 @@
+/* Final golden-tuning pass: only local component geometry. */
+
+/* Cards: match Beamer's ~95px card height and ~27px inter-card gap at 1280×720. */
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 {
+  padding:.34em .38em!important;
+  margin:1.05em 0 0!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3:first-of-type {
+  margin-top:0!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-cards-"] .slide-cell h3 + p {
+  padding:.42em .38em .48em!important;
+  margin:0!important;
+}
+
+/* Focus: first italic paragraph is the deck subtitle, positioned relative to
+   the left cell so it lands on the Beamer subtitle baseline without leaving
+   the flow region. */
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left {
+  position:relative!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-left > p:first-child:has(>em:only-child) {
+  position:absolute!important;
+  left:0!important;
+  top:-8.65cqw!important;
+  width:150%!important;
+  margin:0!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right {
+  margin-top:1.7cqw!important;
+  padding:.24em .34em .34em!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right h3 {
+  padding:.38em .22em .34em!important;
+  margin:0!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-focus-"] .cell-right :where(td,th) {
+  padding:.30em .18em!important;
+}
+
+/* Dark slide: bullets already line up; move Takeaway down and restore the
+   Beamer panel height without changing the bullet block. */
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type {
+  margin-top:2.30em!important;
+  padding:.30em .35em!important;
+}
+.reveal .slides section.scientific-slide[data-slide-id^="pasqal-dark-"] .slide-cell h3:last-of-type + p {
+  padding:.48em .35em .62em!important;
+  min-height:2.45em!important;
+}
