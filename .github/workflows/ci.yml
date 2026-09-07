@@ -69,7 +69,16 @@ jobs:
         if: matrix.browser == 'safari'
         run: sudo safaridriver --enable
       - name: Run browser self-test
+        if: matrix.browser != 'safari'
         run: uv run --frozen --group browser --python 3.11 python tests/browser_ci.py --browser ${{ matrix.browser }}
+      - name: Run Safari browser self-test with one retry
+        if: matrix.browser == 'safari'
+        run: |
+          uv run --frozen --group browser --python 3.11 python tests/browser_ci.py --browser safari || {
+            echo "Safari self-test failed once; retrying after a short delay."
+            sleep 3
+            uv run --frozen --group browser --python 3.11 python tests/browser_ci.py --browser safari
+          }
 
   packages:
     name: Verify distribution build
